@@ -17,11 +17,11 @@
 <body>
   <div id="app">
     <!-- 主頁面 -->
-    <div class="myWrapper" @mouseUp="endDragging()">
+    <div class="myWrapper" @mouseUp="endDragging() @touchend="endDragging()"">
       <div class="sidebarDiv" :style="{ width: `${dividerPosition}%`}">
         <!--  <div class="container"> 清單 </div> -->
       </div>
-      <button class="resizer" :style="{left: `${dividerPosition-1}%`}" @mouseDown="startDragging()">Drag</button>
+      <button class="resizer" :style="{left: `${dividerPosition-1}%`}"  @touchstart="startDragging()" @mouseDown="startDragging()">Drag</button>
 
       <div class="center container" :style="{width: `${100 - dividerPosition}%`}">
         <!--  <div class="container"> 內容</div> -->
