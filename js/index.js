@@ -8,25 +8,55 @@ const defaultPercent = 20;
 createApp({
   data: () => ({
     dividerPosition: 0,
-
+    isDragging: true
   }),
   methods: {
     handleDragging(e) {
-      const percentage = (e.pageX / window.innerWidth) * 100
-      
-      if (e.pageX >= sidbarMaxWidth && percentage >= minPercent && percentage <= maxPercent) {
-        this.dividerPosition = percentage.toFixed(2)
+      let pageX;
+      let pageY;
+      if (e.type.startsWith('touch')) {
+        // mobile
+        pageX = e.touches[0].pageX;
+        pageY = e.touches[0].pageY;
+      } else {
+        // PC
+        pageX = e.pageX;
+        pageY = e.pageY;
       }
+
+      if (pageY < 0) {
+        this.endDragging();
+      }
+      const percentage = (pageX / window.innerWidth) * 100
+
+      /*  if (e.pageX >= sidbarMaxWidth && percentage >= minPercent && percentage <= maxPercent) {
+         this.dividerPosition = percentage.toFixed(2)
+       } */
+      this.dividerPosition = percentage.toFixed(2)
     },
     startDragging() {
-      alert()
-      document.addEventListener('mousemove', this.handleDragging)
+      this.isDragging = false
+      if (navigator.maxTouchPoints > 0) {
+        document.addEventListener('touchmove', this.handleDragging);
+      }
+      else {
+
+        document.addEventListener('mousemove', this.handleDragging);
+      }
     },
     endDragging() {
-      document.removeEventListener('mousemove', this.handleDragging)
+      this.isDragging = true
+      if (navigator.maxTouchPoints > 0) {
+
+        document.removeEventListener('touchmove', this.handleDragging);
+      }
+      else {
+        document.removeEventListener('mousemove', this.handleDragging)
+      }
     },
   },
   mounted() {
+    // 初始直
     this.dividerPosition = defaultPercent;
     this.dividerPosition = (sidbarMaxWidth / window.innerWidth <= 20) ? 20 : (sidbarMaxWidth / window.innerWidth);
 
