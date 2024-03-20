@@ -51,6 +51,7 @@ createApp({
         document.removeEventListener('touchmove', this.handleDragging);
       }
       else {
+        alert();
         document.removeEventListener('mousemove', this.handleDragging)
       }
     },
