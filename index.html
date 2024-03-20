@@ -74,8 +74,10 @@ createApp({
     },
     startDragging() {
       document.addEventListener('mousemove', this.handleDragging)
+      alert(1)
     },
     endDragging() {
+      alert(2)
       document.removeEventListener('mousemove', this.handleDragging)
     },
   },
