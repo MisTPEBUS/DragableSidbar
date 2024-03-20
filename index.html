@@ -17,46 +17,18 @@
 <body>
   <div id="app">
     <!-- 主頁面 -->
-<<<<<<< HEAD
     <div class="myWrapper" @mouseUp="endDragging()" @touchstart="startDragging()">
       <div class="sidebarDiv" :style="{ width: `${dividerPosition}%`}">
         <!--  <div class="container"> 清單 </div> -->
       </div>
      <!--  <div class="resizer" :style="{left: `${dividerPosition-1}%`}" @mouseDown="startDragging()" @touchend="endDragging()"></div> -->
       <button class="resizer" :style="{left: `${dividerPosition-1}%`}" @mouseDown="startDragging()" @touchend="endDragging()"></button>
-=======
-    <div class="myWrapper" @mouseUp="endDragging()" @touchend="endDragging()" >
-      <div class="sidebarDiv" :style="{ width: `${dividerPosition}%`}">
-        <!--  <div class="container"> 清單 </div> -->
-      </div>
-      <button class="resizer" :style="{left: `${dividerPosition-1}%`}" @mouseDown="startDragging()" @touchstart="startDragging()">Drag</button>
->>>>>>> ae34010b0168d9627501863c233c859a5ee2e4ca
 
       <div class="main" :style="{width: `${100 - dividerPosition}%`}" >
         <!--  <div class="container"> 內容</div> -->
-<<<<<<< HEAD
       
         <div class="iframe-cover" v-show="!isDragging"></div>
         <iframe v-show="isDragging" src="https://www.tpebus.com.tw/" frameborder="0" width="100%" height="99%" ></iframe>
-=======
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-          aria-controls="offcanvasScrolling">點我伸縮</button>
-          <iframe src="https://www.tpebus.com.tw/" frameborder="0" width="100%" height="600"></iframe>
-
-      </div>
-
-    </div>
-
-    <!-- sidebar伸縮 -->
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-      id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Sidebar Scrolling Header</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <p>Sidebar Scrolling body.</p>
->>>>>>> ae34010b0168d9627501863c233c859a5ee2e4ca
       </div>
     </div>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>

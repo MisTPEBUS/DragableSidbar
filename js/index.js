@@ -12,7 +12,6 @@ createApp({
   }),
   methods: {
     handleDragging(e) {
-<<<<<<< HEAD
       let pageX;
       let pageY;
       if (e.type.startsWith('touch')) {
@@ -44,18 +43,6 @@ createApp({
 
         document.addEventListener('mousemove', this.handleDragging);
       }
-=======
-      const percentage = (e.pageX / window.innerWidth) * 100
-      
-      this.dividerPosition = percentage.toFixed(2)
-     /*  if (e.pageX >= sidbarMaxWidth && percentage >= minPercent && percentage <= maxPercent) {
-        this.dividerPosition = percentage.toFixed(2)
-      } */
-    },
-    startDragging() {
-      
-      document.addEventListener('mousemove', this.handleDragging)
->>>>>>> ae34010b0168d9627501863c233c859a5ee2e4ca
     },
     endDragging() {
       this.isDragging = true
