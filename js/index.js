@@ -13,12 +13,13 @@ createApp({
   methods: {
     handleDragging(e) {
       const percentage = (e.pageX / window.innerWidth) * 100
-
+      
       if (e.pageX >= sidbarMaxWidth && percentage >= minPercent && percentage <= maxPercent) {
         this.dividerPosition = percentage.toFixed(2)
       }
     },
     startDragging() {
+      alert()
       document.addEventListener('mousemove', this.handleDragging)
     },
     endDragging() {
